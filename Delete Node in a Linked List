@@ -1,0 +1,18 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} node
+ * @return {void} Do not return anything, modify node in-place instead.
+ */
+var deleteNode = function(node) {//since we can only access to the node we want to delete, the best way is to cope next node so next node will be deleted, and this one will be a new next nood since they have the same value and reference
+if(node.val !== undefined && node.next !== undefined){
+    //copy the next node to this node
+    node.val = node.next.val;
+    node.next = node.next.next;
+}
+};
