@@ -1,0 +1,14 @@
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function(nums) {
+    var length=nums.length
+    for(var i=0;i<length;i++){//go through the array
+        if(nums[i]===0){//each time when get a 0, swarp it with the next one
+            for(var j=i+1;j<length;j++){
+                if(nums[j]!==0){nums[i]=nums[j];nums[j]=0;break;}
+            }
+        }
+    }
+};
