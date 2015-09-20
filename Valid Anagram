@@ -1,0 +1,32 @@
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function(s, t) {
+    //well the first way is the harder way, but it's good practice to use hash
+    var map1={};
+    var map2={};
+    //edge cases check
+    if(s.length!=t.length){return false;}
+    if(s===t){return true;}
+    //maps set char as keys, show up counter as values
+    for(var i=0;i<s.length;i++){
+        if(map1[s[i]]===undefined){map1[s[i]]=1;}
+        else{map1[s[i]]+=1;}
+        if(map2[t[i]]===undefined){map2[t[i]]=1;}
+        else{map2[t[i]]+=1;}
+    }
+    //care, both use [s[j]] to compare. also need to check if some char in map1 but not in map2 or reverse
+    for(var j=0;j<s.length;j++){
+        if(map1[s[j]]!==map2[s[j]]||map1[t[j]]===undefined||map2[s[j]]===undefined)return false;
+    }
+    //return map1[t[0]];
+    return true;
+    
+    
+    //here's js magic lol
+    /*
+    return s.split('').sort().toString()===t.split('').sort().toString();
+    */
+};
