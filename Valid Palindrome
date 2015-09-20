@@ -1,0 +1,12 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function(s) {
+    s=s.replace(/\W/g,"").toLowerCase();//remove none-word charsm, then toLowerCase
+    if(s.length<=1)return true;//when "" or "any",return true
+    for(var i=0;i<s.length/2;i++){//2 pointers compare frontward and backward
+        if(s[i]!==s[s.length-i-1]){return false;}
+    }
+    return true;
+};
