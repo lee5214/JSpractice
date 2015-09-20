@@ -1,0 +1,16 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var titleToNumber = function(s) {
+    var codeA="A".charCodeAt();//65,get the unicode num
+    var counter=0;//out of for() incase reset
+    for(var i=s.length-1,power=0;i>=0;i--,power++){
+        counter += (s[i].charCodeAt()-codeA+1)*Math.pow(26,s.length-i-1);//main function: for each digit i, get s[i]'s unicode, then -codeA+1 to get the paired number in decimal. because it's base 26, so for example--> for the first digit, to make sure pow=1 , use s.length-i-1==s.length-s.length+1-1===0, it will be 1 for second digit 
+    }
+    return counter;
+};
