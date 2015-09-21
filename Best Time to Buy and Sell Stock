@@ -1,0 +1,12 @@
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+    var min=0,maxP=0;//use maxP holds the currently highest profit
+    for(var i=1;i<prices.length;i++){
+        if(prices[i]<prices[min]){min=i;};//if p[i] is smaller than p[min], min=i but maxP doesnt change
+        if(prices[i]-prices[min]>maxP){maxP=prices[i]-prices[min];}//only when p[i]-p[min]>maxP, maxP change
+    }
+    return maxP>=0?maxP:0;
+};
