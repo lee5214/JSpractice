@@ -1,0 +1,25 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var romanToInt = function(s) {
+    //if a smaller key before a larger key, it means the result of them two is (larger value - smaller value)
+    var map={"M":1000,"D":500,"C":100,"L":50,"X":10,"V":5,"I":1};
+    var counter=0;
+    var prev=0;
+    for(var i=0;i<s.length;i++){
+        var key=s[i];//easier to check
+        if(map[key]>prev){
+            counter+=map[key];
+            counter-=prev*2;//because we added that num in the calculation before, so need to delete twice
+            prev=map[key]-prev;//prev now represent the value of two char before
+        }
+        else{//when currNum <= prevNum, means its next set of nums
+            counter+=map[key];
+            prev=map[key];
+        }
+        
+    }
+    return counter;
+    
+};
