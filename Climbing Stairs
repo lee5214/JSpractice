@@ -1,0 +1,25 @@
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var climbStairs = function(n) {
+    //recursion cant hundle <large> number
+    /*num n, with 1 or 2. how many ways
+     if (n == 1) return 1;  
+        if (n == 2) return 2;  
+        return climbStairs(n-1) + climbStairs(n-2);  
+    */
+       
+/*
+题目问的是到n级台阶有多少种可能，从任意低级台阶到达n级台阶（n>=2）只有两种可能，要么从n-2上来要么从n-1上来， 如果f(n)是到n级的可能性，那么它必然是f(n-1):(到达n-1级台阶的可能性，走了一级台阶到达n) 加上f(n-2):(到达n-2级台阶的可能性， 走了两级台阶到达n) 之和，这题中，lastlast就是n-2级台阶的可能性，last就是n-1级台阶的可能性，now就是当前n级台阶的可能性，now = lastlast + last;这样从n大于2时一直向题目想要的台阶数逼近，直到题目想要的台阶数。
+*/      var sNum=n;
+        if(n<=2)return sNum;//when n=1 or 2, there are only 1 or 2 ways
+        var n1=1,n2=2,cur=0;//use var not arr, so space complexity be O(1)
+        for (var i = 3; i <= n; i++)  
+        {  
+            cur = n1 + n2; 
+            n1 = n2;
+            n2 = cur
+        }  
+        return cur; 
+};
