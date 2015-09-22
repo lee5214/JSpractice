@@ -1,0 +1,28 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var preorderTraversal = function(root) {
+    var stack = [],result=[],currentN;//use push/pop() to simulate stack function 
+    if(root===null){return result;}
+    stack.push(root);
+    while(stack.length>0){
+            currentN=stack.pop();
+            result.push(currentN.val);
+        if(currentN.right!==null){//because it's stack, so FILO, push right first so will check left first 
+            stack.push(currentN.right);
+        }
+        if(currentN.left!==null){
+            stack.push(currentN.left);
+        }
+    }
+    return result;
+         
+};
