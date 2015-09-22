@@ -1,0 +1,13 @@
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {//hard to think, but easy to do once know how
+    var profit=0;
+    if(prices.length<=1){return 0}
+    for(var i=0;i<prices.length;i++){
+        if(prices[i]>prices[i-1]){//it says only one transaction per day, but this is same, if price[nextDay]>price[curDay], then buy it today and sell tomorrow, it's equivalent as buy at minPrice then sell at maxPrice.
+            profit+=prices[i]-prices[i-1];//just add profits gained every day
+        }
+    }
+    return profit;
