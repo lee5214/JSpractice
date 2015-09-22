@@ -1,0 +1,17 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function(nums) {
+    var arr=[];//shouldnt manipulate nums[] cause we need do that twice
+    var pre=1;//value before i
+    var aft=1;//value after i
+    for(var i=0;i<nums.length;i++){arr[i]=1;}//all values are 1
+    for(var j=0;j<arr.length;j++){
+        arr[j] *= pre;//use 2 pointers go forward and backward, multiple except nums[i]
+        arr[nums.length-j-1] *= aft;
+        pre *= nums[j];
+        aft *= nums[nums.length-j-1]
+    }
+    return arr;
+};
