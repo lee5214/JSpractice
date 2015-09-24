@@ -1,0 +1,24 @@
+/**
+ * Definition for binary tree with next pointer.
+ * function TreeLinkNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = this.next = null;
+ * }
+ */
+
+/**
+ * @param {TreeLinkNode} root
+ * @return {void} Do not return anything, modify tree in-place instead.
+ */
+var connect = function(root) {
+    while(root!==null&&root.left!==null){
+    var cur=root;
+        while(cur!==null){//when cur=cur.next goto null, end while(), then root=root.left excute
+            cur.left.next=cur.right;//for cur's children
+            cur.right.next=cur.next===null?null:cur.next.left//connection leaves
+            cur=cur.next;//if null,end while(),else repeat while()
+            
+        }
+    root=root.left;
+    }
+};
