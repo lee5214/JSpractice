@@ -1,0 +1,17 @@
+/**
+ * @param {number[]} nums1
+ * @param {number} m
+ * @param {number[]} nums2
+ * @param {number} n
+ * @return {void} Do not return anything, modify nums1 in-place instead.
+ */
+var merge = function(nums1, m, nums2, n) {
+    while(n){
+        nums1[m++]=nums2[--n];//add all elements in nums2 into nums1. use --n so it will -1 first, then i=new i
+    }
+    nums1.sort(function(e1,e2){
+        return e1-e2;//sort(function), compare every elements in nums1. if e1<e2 return -1, then go check next. (e2-e1 from largest to lowest)
+        //this is useful, need more practice. Using function to write my own method 
+    })
+   
+};
