@@ -1,0 +1,23 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function(nums) {
+    var n=(nums.length)*(nums.length+1)/2; //use n!=n*(n+1)/2 to get the actual sum, not using (n-1)*n/2 is because need consider if last num is missing
+    for(var i=0;i<nums.length;i++){
+        n-=nums[i];
+    }
+    return n;
+}
+    //sort it first, then compare n[i] with n[i+1] to find the num
+/*  nums.sort(function(a,b){return a-b});
+    //return nums;
+    for(var i=0;i<nums.length;i++){
+        if(nums[0]!==0){return 0}
+        if(nums[i]!==nums[i+1]-1||nums[i+1]===null){return nums[i]+1}
+       // else{
+          //  return nums[nums.length-1]+1;
+      //  }
+    }
+};
+*/
