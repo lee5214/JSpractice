@@ -1,0 +1,14 @@
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {boolean}
+ */
+var containsNearbyDuplicate = function(nums, k) {
+    if(nums.length===0){return false}
+    var map={};
+    for(var i=0;i<nums.length;i++){//use map to reduce time complexity
+        if(map[nums[i]]>=0&& i-map[nums[i]]<=k){return true}// if find the same value, and the distance is smaller than k, return true
+        else{ map[nums[i]]=i}//else, push it into map, number as key and index as value
+    }
+    return false;
+};
