@@ -1,0 +1,21 @@
+var searchRange = function(nums, target) {
+    var start=0,end=nums.length-1;
+    while(start<=end){
+        mid=parseInt((start+end)/2);//inside while, so it will change everytime when star,end changes
+        console.log(start,end,mid)
+        if(nums[mid]===target){//when mid=target, start use start-- end++ to check the edge 
+            start=mid;
+            end=mid;
+            while(nums[start-1]===target){start--}
+            while(nums[end+1]===target){end++}
+            return [start,end];
+        }
+        else if(nums[mid]<target){//no need set mid value cause mid is dynamic
+            start=mid+1;
+        }
+        else{
+            end=mid-1;
+        }
+    }
+    return [-1,-1]
+};
