@@ -1,0 +1,14 @@
+function cat(){}
+cat.prototype={
+ food:"fish",
+ say: function(){
+ console.log("I love "+this.food);
+ }
+}
+var blackCat = new cat;
+whiteDog = {food:"bone"},
+blackCat.say.call(whiteDog);//I love bone
+blackCat.say.apply(whiteDog);//I love bone
+//call(obj,arg1,arg2...)
+//apply(obj,[arg1,arg2...])
+//whiteDog use the method say()in blackCat (this==whiteDog)
