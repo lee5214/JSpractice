@@ -1,1 +1,2 @@
-Since I'm focusing on frondend, so I'm trying to solve problems by using pure JS.
+Practice algorisms using JavaScript and Python
+They are the 2 main languages I choose to learn/practice in projects now
