@@ -1,0 +1,15 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        dist={}
+        for index,value in enumerate(nums):#当遍历数组或列表的index和value时,用enumerate
+            if dist.has_key(target-value):
+                return (dist[target-value]+1,index+1)
+            else:
+                dist[value]=index
+        return (0,0)
+        
